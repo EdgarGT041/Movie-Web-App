@@ -1,9 +1,24 @@
+import Navbar from "./components/Navbar/Navbar"
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
+import Home from "./pages/Home/Home"
+import Movies from "./pages/Movies/Movies"
+import Details from "./pages/Details/Details"
 
 
 function App() {
 
   return (
-    <div className="bg-yellow-400">Movie App</div>
+      <div className="">
+        <Navbar />
+        <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/moviesdetails/:id" element={<Details />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+        </BrowserRouter>
+        </div>
   )
 }
 
