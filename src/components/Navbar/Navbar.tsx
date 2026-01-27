@@ -16,7 +16,7 @@ function Navbar() {
             <div className=" ">
                 <input 
                 placeholder="Search"
-                className="w-[500px] h-10 text-[#c2c2c2] text-lg outline-none px-4 placeholder:text-[#646464] rounded-xl" 
+                className="bg-[#1e1e1e] w-[500px] h-10 text-[#c2c2c2] text-lg outline-none px-4 placeholder:text-[#646464] rounded-xl" 
                 type="text" />
             </div>
         </div>
