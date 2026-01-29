@@ -3,18 +3,48 @@ import HomeCarousel from "./HomeCarousel";
 import { baseApi } from "../../api/axiosInstance";
 import type { CarouselMovie } from "../../utils/constant";
 import HomeCarouselList from "./HomeCarouselList";
+
+interface CarouselSlideEvent extends Event {
+  to: number;
+  from: number;
+}
 function HomeSlider() {
 
 
   const [carouselMovies, setCarouselMovies] = useState<CarouselMovie[]>([]);
-  const[next,setNext]=useState<number[]>([1,2,3]);
+  const [selected,setSelected]=useState(0);
+
+  const next = carouselMovies.length > 0 
+    ? [
+        (selected+1)%carouselMovies.length,
+        (selected+2)%carouselMovies.length,
+        (selected+3)%carouselMovies.length
+      ]
+    : [];
+
+      useEffect(() => {
+        const myCarousel = document.getElementById("carouselExample");
+
+        const handleSlide = (event: Event) => {
+          const customEvent = event as CarouselSlideEvent;
+          setSelected(customEvent.to);
+        };
+
+        if (myCarousel) {
+          myCarousel.addEventListener('slid.bs.carousel', handleSlide);
+
+          return () => {
+            myCarousel.removeEventListener('slid.bs.carousel', handleSlide);
+          };
+        }
+      }) 
+
   useEffect(() => {
     const fetchUpcoming = async () => {
       try {
         const response = await baseApi.get(
           "/3/movie/upcoming?language=en-US&page=1",
         );
-        console.log(response.data.results);
         setCarouselMovies(response.data.results);
       } catch (err) {
         console.log("fetch upcoming movies error", err);
