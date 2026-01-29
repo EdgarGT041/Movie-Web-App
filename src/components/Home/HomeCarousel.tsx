@@ -9,7 +9,7 @@ function HomeCarousel({ carouselMovies }: HomeCarouselProps) {
   return (
       <div className="carousel-inner">
           {carouselMovies.map((movie, index) => (
-            <div className={`carousel-item ${index === 0 ? "active" : ""}`}>
+            <div key={index} className={`carousel-item ${index == 0 ? "active" : ""}`}>
               <div className="relative">
                 {/* <div className="block bg-red-300 aspect-[7/4]"></div> */}
                 <img
