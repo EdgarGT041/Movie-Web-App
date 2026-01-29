@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import HomeCarousel from "./HomeCarousel";
 import { baseApi } from "../../api/axiosInstance";
 import type { CarouselMovie } from "../../utils/constant";
+import HomeCarouselList from "./HomeCarouselList";
 function HomeSlider() {
 
 
   const [carouselMovies, setCarouselMovies] = useState<CarouselMovie[]>([]);
+  const[next,setNext]=useState<number[]>([1,2,3]);
   useEffect(() => {
     const fetchUpcoming = async () => {
       try {
@@ -22,7 +24,10 @@ function HomeSlider() {
   }, []);
 
   return (
-    <div className="relative w-[900px]">
+
+    <div className="row">
+
+    <div className="relative col-8">
       <div id="carouselExample" className="carousel slide">
         <HomeCarousel carouselMovies={carouselMovies} />
   
@@ -51,6 +56,10 @@ function HomeSlider() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+    </div>
+    <div className="col-4 ">
+      <HomeCarouselList next={next}  carouselMovies={carouselMovies} />
+    </div>
     </div>
   );
 }
