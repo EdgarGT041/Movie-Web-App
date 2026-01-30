@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import HomeCarousel from "./HomeCarousel";
 import { baseApi } from "../../api/axiosInstance";
-import type { CarouselMovie } from "../../utils/constant";
+import type { CarouselMovieType } from "../../utils/constant";
 import HomeCarouselList from "./HomeCarouselList";
 
 interface CarouselSlideEvent extends Event {
@@ -11,7 +11,7 @@ interface CarouselSlideEvent extends Event {
 function HomeSlider() {
 
 
-  const [carouselMovies, setCarouselMovies] = useState<CarouselMovie[]>([]);
+  const [carouselMovies, setCarouselMovies] = useState<CarouselMovieType[]>([]);
   const [selected,setSelected]=useState(0);
 
   const next = carouselMovies.length > 0 
