@@ -9,7 +9,7 @@ function HomeCarousel({ carouselMovies }: HomeCarouselProps) {
   return (
       <div className="carousel-inner">
           {carouselMovies.map((movie, index) => (
-            <div key={index} className={`carousel-item ${index == 0 ? "active" : ""}`}>
+            <div className={`carousel-item ${index == 0 ? "active" : ""}`}>
               <div className="relative">
                 {/* <div className="block bg-red-300 aspect-[7/4]"></div> */}
                 <img
@@ -17,6 +17,9 @@ function HomeCarousel({ carouselMovies }: HomeCarouselProps) {
                   className="w-full aspect-[7/4]"
                   alt=""
                 />
+
+                <div className={'w-full absolute h-full top-0 left-0 bg-black opacity-[0.1] hover:opacity-[0.3] transition-opacity duration-200'}></div>
+
                 <div className="absolute bottom-0 h-44 w-full _carouselGradient"></div>
               </div>
               <div className="absolute bottom-0 flex items-end gap-4 px-4">
