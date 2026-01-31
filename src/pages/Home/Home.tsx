@@ -20,7 +20,6 @@ useEffect(() => {
   }
   
   fetchMovies(page)
-  console.log('render')
 }, [page])
 
 const handlePageUpdate = () => {
