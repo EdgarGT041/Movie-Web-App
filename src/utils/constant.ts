@@ -17,3 +17,15 @@ export   interface CarouselMovieType {
     original_language: string;
 
   }
+
+export interface CategoryType {
+    name: string
+    path: string
+}
+
+export const category: CategoryType[] = [
+    { name: "Now Playing", path: "now_playing" },
+    { name: "Popular", path: "popular" },
+    { name: "Top Rated", path: "top_rated" },
+    { name: "Upcoming", path: "upcoming" }
+]
