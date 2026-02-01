@@ -29,7 +29,7 @@ const handlePageUpdate = () => {
   return (
     <div className='w-[90%] mx-auto mb-44'>
       <HomeSlider></HomeSlider>
-      <MovieList movies={movies}></MovieList>
+      <MovieList movies={movies} title="Top Rated Movies"></MovieList>
       <div onClick={handlePageUpdate}>
       <LoadMoreButton></LoadMoreButton>
 
