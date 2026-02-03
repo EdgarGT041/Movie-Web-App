@@ -9,7 +9,6 @@ function Trailers({ movieId }: { movieId: string}) {
         const response = await baseApi.get(
           `/3/movie/${movieId}/videos?language=en-US`,
         );
-        console.log(response.data.results);
         const trailerObj = response.data.results.filter(
           (data: { type: string }) => data.type === "Trailer",
         );
