@@ -4,9 +4,9 @@ import { baseApi } from "../../api/axiosInstance";
 import { type MovieDetailType } from "../../utils/constant";
 import { imagepath } from "../../utils/constant";
 import Trailers from "../../components/MovieDetails/Trailers";
+import SimilarMovies from "../../components/MovieDetails/SimilarMovies";
 function Details() {
   const params = useParams();
-  console.log(params);
   const [details, setDetails] = useState<MovieDetailType>();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function Details() {
   }, [params]);
   return (
     <div>
-      {details && (
+      {details && params.id && (
         <div className="relative h-fit w-full ">
           <div className="relative ">
             <img
@@ -68,6 +68,7 @@ function Details() {
                 </div>
               </div>
               <Trailers movieId={params.id!} />
+              <SimilarMovies movieId={params.id!} />
             </div>
           </div>
         </div>
