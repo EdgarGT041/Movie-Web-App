@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { baseApi } from "../../api/axiosInstance";
 import { type MovieDetailType } from "../../utils/constant";
 import { imagepath } from "../../utils/constant";
+import Trailers from "../../components/MovieDetails/Trailers";
 function Details() {
   const params = useParams();
   console.log(params);
@@ -66,6 +67,7 @@ function Details() {
                   </div>
                 </div>
               </div>
+              <Trailers movieId={params.id!} />
             </div>
           </div>
         </div>
