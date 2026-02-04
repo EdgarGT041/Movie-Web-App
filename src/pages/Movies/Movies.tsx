@@ -80,8 +80,8 @@ function Movies() {
 
   return (
     <div className='w-[90%] mx-auto mt-4'>
-      <h1 className='text-3xl font-bold text-yellow-500'>Explore Movies</h1>
-      <div className="flex mt-2">
+      <h1 className='md:text-3xl sm:text-2xl text-xl font-bold text-yellow-500'>Explore Movies</h1>
+      <div className="flex flex-wrap mt-2">
         {
           category.map((item, ind) => (
             <div key={ind} className="">

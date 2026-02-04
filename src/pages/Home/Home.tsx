@@ -27,7 +27,7 @@ const handlePageUpdate = () => {
 }
 
   return (
-    <div className='w-[90%] mx-auto mb-44'>
+    <div className='xl:w-[90%] md:w-[95%] mx-auto mb-44'>
       <HomeSlider></HomeSlider>
       <MovieList movies={movies} title="Top Rated Movies"></MovieList>
       <div onClick={handlePageUpdate}>
