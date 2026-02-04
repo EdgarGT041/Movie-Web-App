@@ -2,6 +2,11 @@
 
 A modern web application to explore and discover movies, built with React, TypeScript, and Vite. Integrated with The Movie Database (TMDB) API to fetch up-to-date movie information.
 
+## 🔗 Live Demo & Code
+
+- **🚀 Live Demo:** [https://movie-web-app-blue.vercel.app/](https://movie-web-app-blue.vercel.app/)
+- **💻 Repository:** [https://github.com/EdgarGT041/Movie-Web-App](https://github.com/EdgarGT041/Movie-Web-App)
+
 ## ✨ Features
 
 - 🎯 **Home Page**: Interactive carousel with upcoming movies and a list of top-rated films
