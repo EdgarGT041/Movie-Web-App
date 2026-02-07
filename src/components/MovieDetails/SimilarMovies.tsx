@@ -9,16 +9,39 @@ function SimilarMovies({ movieId }: { movieId: string }) {
     const [page, setPage] = useState(1)
 
     useEffect(() => {
+        const currentPage = 1
         const fetchSimilarMovies = async () => {
             try {
-                const response = await baseApi.get(`/3/movie/${movieId}/similar?language=en-US&page=${page}`)
-                setMovies(prev => [...prev, ...response.data.results])
+                const response = await baseApi.get(`/3/movie/${movieId}/similar?language=en-US&page=${currentPage}`)
+                setMovies(response.data.results)
             } catch (error) {
                 console.log("fetch similar movies err", error)
             }
         }
 
-        fetchSimilarMovies()
+        if (movieId) {
+            fetchSimilarMovies()
+        }
+    }, [movieId])
+
+    useEffect(() => {
+        const fetchSimilarMovies = async () => {
+            try {
+                const response = await baseApi.get(`/3/movie/${movieId}/similar?language=en-US&page=${page}`)
+                
+                if (page === 1) {
+                    setMovies(response.data.results)
+                } else {
+                    setMovies(prev => [...prev, ...response.data.results])
+                }
+            } catch (error) {
+                console.log("fetch similar movies err", error)
+            }
+        }
+
+        if (movieId && page > 1) {
+            fetchSimilarMovies()
+        }
     }, [page, movieId])
 
     const handleLoadMore = () => {
